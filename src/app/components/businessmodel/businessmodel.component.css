@@ -1,0 +1,11 @@
+img{
+  
+      margin: 0 auto;
+      display: block;
+  }
+
+img:hover{
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  
+  }

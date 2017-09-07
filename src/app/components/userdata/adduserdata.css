@@ -1,0 +1,13 @@
+.confirmbutton{
+	background-color: #a94442;
+    width: 100%;
+    align-content: center;
+}
+/* Retina display */
+@media screen and (min-width: 1024px){
+	.confirmbutton{
+		width: 80%;
+    	align-content: center;
+		left: 100%;
+	}
+}

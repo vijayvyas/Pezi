@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+
+img{
+    display: block;
+    margin: 0 auto;
+}
+
+.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.avatar:hover {
+  opacity: 0.5;
+}
+
+
+.google1:hover{
+
+background-color:rgba(221, 75, 57, 0.61)!important;
+}
+
+
+.git1:hover{
+
+  background-color:rgba(68, 68, 68, 0.78)!important;
+  }
+
+
+.fb1:hover{
+
+  background-color:rgba(22, 1, 56, 0.61)!important;
+  }
+
+
+

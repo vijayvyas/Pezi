@@ -1,0 +1,45 @@
+.photogallery h1{
+text-align:center;
+color: #da851b;
+
+}
+
+hr {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 2px dotted #b8cfd8;
+  width: 22%;
+}
+
+.photogallery img{
+margin-bottom:30px;
+}
+
+.photogallery img:hover {
+  opacity: 0.8;
+  }
+
+
+/* Zoom In #1 */
+.hover15 figure img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.hover15 figure:hover img {
+	-webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  z-index:1;
+  position: relative;
+}
+
+
+
+@media(max-width:767px){
+  hr {
+
+    width:75%;
+  }
+}

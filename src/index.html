@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PeziTr</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+    <base href="/">
+    <!--<script src="assets/js/pace/pace.min.js"></script>-->
+    <link href="/assets/css/imagelightbox.css" rel="stylesheet" />
+    <!--<link href="/assets/css/pace.css" rel="stylesheet" />-->
+    <link rel="stylesheet" href="./src/styles.css">
+
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css">
+    <!--<link href="./app/css/user.css" rel="stylesheet" type="text/css">-->
+    <!--<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Polyfill(s) for older browsers -->
+
+    <link rel="stylesheet" href="http://www.hyphentravels.in/css/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/shim.min.js"></script>
+
+    <!--<script src="node_modules/zone.js/dist/zone.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.20.12/system.src.js"></script>
+
+    <!--<script src="systemjs.config.js"></script>-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--<script>
+      System.import('src/main').catch(function(err){ console.error(err); });
+    </script>-->
+  <!-- script for Photo gallery-->
+    <script src="/assets/js/imagelightbox.js"></script>
+    <script src="/assets/js/mainimglightbox.js"></script>
+    <script>
+        new WOW().init();
+      </script>
+
+
+      <script>
+        $(document).ready(function () {
+          var a = 0;
+          $(window).scroll(function () {
+
+            var oTop = $('#counter').offset().top - window.innerHeight;
+            if (a == 0 && $(window).scrollTop() > oTop) {
+              $('.counter-value').each(function () {
+                var $this = $(this),
+                  countTo = $this.attr('data-count');
+                $({
+                  countNum: $this.text()
+                }).animate({
+                  countNum: countTo
+                },
+
+                  {
+
+                    duration: 3000,
+                    easing: 'swing',
+                    step: function () {
+                      $this.text(Math.floor(this.countNum));
+                    },
+                    complete: function () {
+                      $this.text(this.countNum);
+                      //alert('finished');
+                    }
+
+                  });
+              });
+              a = 1;
+            }
+
+          });
+        });
+
+      </script>
+
+
+    <script>
+        $(document).ready(function () {
+
+    var TxtType = function(el, toRotate, period) {
+            this.toRotate = toRotate;
+            this.el = el;
+            this.loopNum = 0;
+            this.period = parseInt(period, 10) || 1000;
+            this.txt = '';
+            this.tick();
+            this.isDeleting = false;
+        };
+
+        TxtType.prototype.tick = function() {
+            var i = this.loopNum % this.toRotate.length;
+            var fullTxt = this.toRotate[i];
+
+            if (this.isDeleting) {
+            this.txt = fullTxt.substring(0, this.txt.length - 1);
+            } else {
+            this.txt = fullTxt.substring(0, this.txt.length + 1);
+            }
+
+            this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+            var that = this;
+            var delta = 200 - Math.random() * 100;
+
+            if (this.isDeleting) { delta /= 2; }
+
+            if (!this.isDeleting && this.txt === fullTxt) {
+            delta = this.period;
+            this.isDeleting = true;
+            } else if (this.isDeleting && this.txt === '') {
+            this.isDeleting = false;
+            this.loopNum++;
+            delta = 500;
+            }
+
+            setTimeout(function() {
+            that.tick();
+            }, delta);
+        };
+
+        window.onload = function() {
+            var elements = document.getElementsByClassName('typewrite');
+            for (var i=0; i<elements.length; i++) {
+                var toRotate = elements[i].getAttribute('data-type');
+                var period = elements[i].getAttribute('data-period');
+                if (toRotate) {
+                  new TxtType(elements[i], JSON.parse(toRotate), period);
+                }
+            }
+            // INJECT CSS
+            var css = document.createElement("style");
+            css.type = "text/css";
+            css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+            document.body.appendChild(css);
+        };
+      });
+    </script>
+
+  </head>
+  <body>
+    <base href="/">
+    <app-root>page loading........... </app-root>
+  </body>
+</html>

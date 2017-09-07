@@ -1,0 +1,35 @@
+
+
+.carousel {
+    position: relative;
+    top: 50px;
+}
+
+.scrollingdiv{
+
+    background-color: dimgray;
+    color:#fff;
+
+}
+
+.scrollingdiv:hover{
+
+        background-color: #282828;
+        /*color:#000;*/
+
+    }
+
+    .carousel-indicators .active {
+        width: 15px;
+        height: 15px;
+        margin: 0;
+
+    }
+
+
+    .carousel-control img {
+      position: absolute;
+      height: 40px;
+      top: 150px;
+
+  }

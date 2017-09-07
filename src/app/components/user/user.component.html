@@ -1,0 +1,43 @@
+
+<h2>{{fname}} :: {{lname}}</h2>
+            <p><strong>Email</strong> : {{email}}</p>
+            <p><strong>Company</strong>  : {{company }}</p>
+            <p><strong>Address</strong>  : {{address.street }}{{address.city }}{{address.state}}</p>
+            
+
+            <!---<button (click)="hideHobbies()">{{showHobbies? "HideHobbies" : "Show Hobbies"}}</button>-->
+            <!--<div *ngIf="showHobbies">
+                <h3>Hobbies</h3>
+                <ul>
+                  <li *ngFor="let hobby of hobbies; let i = index">
+                      {{hobby}} <button (click)="deleteHobby(i)">*</button>
+                  </li>
+                </ul>
+                <form (submit) ="addHobby(hobby.value)">
+                  <label>Add Hobby: </label><br />
+                  <input type="text" #hobby/><br />
+                </form>
+            </div>-->
+            <hr />
+            <h3> Edit User Details </h3>
+            <form>
+              <label>First Name: </label><br />
+              <input type="text" name="fname" [(ngModel)]="fname"/><br />
+              <label>Last Name: </label><br />
+              <input type="text" name="lname" [(ngModel)]="lname"/><br />
+              <label>Email: </label><br />
+              <input type="text" name="email" [(ngModel)]="email"/><br />
+              <label>Company: </label><br />
+              <input type="text" name="company" [(ngModel)]="company"/><br />
+              <label>Address: </label><br />
+              <label>Street: </label><input type="text" name="address.street" [(ngModel)]="address.street"/>
+              <label>City: </label><input type="text" name="address.city" [(ngModel)]="address.city"/>
+              <label>State: </label><input type="text" name="address.state" [(ngModel)]="address.state"/><br />
+              
+            </form>
+            <hr />
+            <h3>Posts</h3>
+            <div *ngFor= "let post of posts">
+              <h3>{{post.title}} </h3>
+              <p>{{post.body}}</p>
+            </div>

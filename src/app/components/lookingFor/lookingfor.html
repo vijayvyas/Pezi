@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>LookingFor</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!--<link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
+
+</head>
+
+<body>
+	<section id="mailing-list" style="margin-top: 10px">
+		<div class="container">
+			<!--<ul class="pager">
+		<li class="previous"><a href="#">Previous</a></li>
+		<li class="next"><a href="#">Next</a></li>
+	</ul>-->
+	<form [formGroup]="lookingforForm" novalidate (ngSubmit)="onSubmit(lookingforForm.value, lookingforForm.valid)">
+			<div class=" form-group row" [hidden]="!successFlag">
+				<div class="col-lg-12 text-center">
+					<h2 style="color: #333" class="section-heading">Thanks for Recommendation </h2>
+					<!--<h2 style="color: #333" class="section-heading" [hidden] = "!hideme">Technical</h2>-->
+				</div>
+			</div>
+			<div class="row" [hidden]="successFlag">
+				<div class="col-lg-12 text-center">
+					<h2 style="color: #333" class="section-heading">Request for Next Course</h2>
+					<!--<h2 style="color: #333" class="section-heading" [hidden] = "!hideme">Technical</h2>-->
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12 col-md-offset-1" [hidden]="successFlag">
+
+					<div id="#mc_embed_signup">
+						<form [formGroup]="lookingforForm" novalidate (ngSubmit)="onSubmit(lookingforForm.value, lookingforForm.valid)">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-2">
+									<div style="text-align: right;font-size: 11px; margin-right: 4%">
+										<span style="color: #e85c41; font-size: 150%; font-weight: normal; position: relative; top: 5px">*</span> indicates
+										required
+									</div>
+									<div style=" padding-top: 30px"></div>
+									<div class="form-group row">
+										<label for="email" class="col-sm-3 col-form-label" style="text-align: right"><span class="asterisk">*</span> Email:</label>
+										<div class="col-sm-8">
+											<input [(ngModel)]="emailId" style="text-indent: 4%" required class="form-control"  formControlName="email" id="email" placeholder="Enter Email">
+											<!--<input [(ngModel)]="emailId" style="text-indent: 4%" required class="form-control"  formControlName="email" placeholder="Enter Email" id="email" type="email">-->
+											<!--<small [hidden]="userForm.controls.email.valid || (userForm.controls.email.pristine && !submitted)" class="text-danger">Email required</small>-->
+											<control-messages [control]="lookingforForm.controls.email" style="color: #E82C0C;"></control-messages>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="fname" class="col-sm-3 col-form-label" style="text-align: right"><span class="asterisk">*</span> Name:</label>
+										<div class="col-sm-8">
+											<input  [(ngModel)]="userName" style="text-indent: 4%"  required class="form-control" formControlName="fname" id="fname" placeholder="Full Name">
+											<!--<input type="text" [(ngModel)]="userName" style="text-indent: 4%"  required class="form-control" formControlName="fname" id="fname" placeholder="First Name">-->
+											<!--<small [hidden]="userForm.controls.fname.valid || (userForm.controls.fname.pristine && !submitted)" class="text-danger">First Name required</small>-->
+											<control-messages [control]="lookingforForm.controls.fname" style="color: #E82C0C;"></control-messages>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="mobileno" class="col-sm-3 col-form-label" style="text-align: right"><span class="asterisk">*</span> Mobile:</label>
+										<div class="col-sm-8">
+											<input style="text-indent: 4%"  required class="form-control" formControlName="mobileno" id="mobileno" placeholder="9800000000 (10 digit mobile number.)">
+											<!--<input type="text" [(ngModel)]="userName" style="text-indent: 4%"  required class="form-control" formControlName="fname" id="fname" placeholder="First Name">-->
+											<!--<small [hidden]="userForm.controls.fname.valid || (userForm.controls.fname.pristine && !submitted)" class="text-danger">First Name required</small>-->
+											<control-messages [control]="lookingforForm.controls.mobileno" style="color: #E82C0C;"></control-messages>
+										</div>
+									</div>
+									
+									<!--<div class="form-group row">
+										<label for="cname" class="col-sm-3 col-form-label" style="text-align: right">Company Name:</label>
+										<div class="col-sm-8">
+											<input type="text" style="text-indent: 4%"  class="form-control" formControlName="cname" id="cname" placeholder="Company Name">
+											<control-messages [control]="lookingforForm.controls.cname" style="color: #E82C0C;"></control-messages>
+										</div>
+									</div>-->
+									<div class="form-group row">
+										<label for="experience" class="col-sm-3 col-form-label" style="text-align: right"><span class="asterisk">*</span> Experience:</label>
+										<div class="col-sm-8">
+											<select style="text-indent: 2%" formControlName="experience" #refName class="form-control" style="height: 3.4rem">
+										<option *ngFor="let experience of expobj" value="{{ experience.id }}"> {{ experience.name }}</option>
+									</select>
+											<!--<small [hidden]="userForm.controls.experience.valid || (userForm.controls.experience.untouched && !submitted)" class="text-danger">Experience required</small>-->
+											<control-messages [control]="lookingforForm.controls.experience" style="color: #E82C0C;"></control-messages>
+
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label for="techname" class="col-sm-3 col-form-label" style="text-align: right"><span class="asterisk">*</span>Technology:</label>
+										<div class="col-sm-8">
+											<select formControlName="techname" #refName (change)="onSelect($event.target.value)"  class="form-control" style="height: 3.4rem">
+										<option *ngFor="let techname of technameobj" value="{{ techname.id }}"> {{ techname.name }}</option>
+									</select>
+											<control-messages [control]="lookingforForm.controls.techname" style="color: #E82C0C;"></control-messages>
+										</div>
+                                  </div>  
+                                  <div class="form-group row">
+										<label for="othertechName" class="col-sm-3 col-form-label" style="text-align: right"></label>    
+                                        <div class="col-sm-8" [ngClass]="{hidden:!hideFlag, showElement:hideFlag}">
+											<input type="text" style="text-indent: 4%"  class="form-control" formControlName="othertechName" id="othertechName" placeholder="Tech Name">
+											<control-messages [control]="lookingforForm.controls.othertechName" style="color: #E82C0C;"></control-messages>
+										</div>
+                                  </div>
+									
+                                    
+									<!--</div>-->
+
+									<!--<div class="form-group row">
+										<label for="area1" class="col-sm-3 col-form-label" style="text-align: right">Area Name:</label>
+										<div class="col-sm-8">
+											<select formControlName="area1" #refName class="form-control" style="height: 3.4rem">
+										<option *ngFor="let area of areaobj" value="{{ area.id }}"> {{ area.name }}</option>
+									</select>
+											<control-messages [control]="lookingforForm.controls.area1" style="color: #E82C0C;"></control-messages>
+										</div>
+									</div>-->
+								</div>
+							</div>
+							<!--<div class="row" style="text-align: left">
+								<div class="col-md-offset-1 col-md-12">
+									<h1 style="font-size:20px">Interested in</h1>
+								</div>
+							</div>-->
+							
+							<!--<div class="row">
+								<div class="col-md-offset-1 col-md-10">
+									<div class="form-group" style="text-align: left">
+										<div>
+										<ul class="errors"></ul>
+										<label for="ques3lebel"><span class="asterisk">*</span> Technology Name.</label>
+										<div class="row">
+											<div class="col-md-6">
+												<textarea class="form-control" cols="40" id="ques3TextArea" maxlength="1000" required formControlName="ques3TextArea" #refName rows="4"></textarea>
+                                                <control-messages [control]="lookingforForm.controls.ques3TextArea" style="color: #E82C0C;"></control-messages>
+											</div>
+										</div>
+									<br>
+									</div>
+									</div>
+								</div>
+							</div>-->	
+
+							<div class="clear">
+								<!--<button type="button" (click)="previous()" class="btn btn-primary" name="previous" style="background-color: #333">previous</button>-->
+								<button type="submit"  [disabled]="!lookingforForm.valid" class=" confirmbutton btn btn-primary" style="background-color: #a94442;" name="confirm">Confirm</button>
+							</div>
+						</form>
+					</div>
+
+				</div>
+			</div>
+	</form>
+
+
+		</div>
+	</section>
+
+</body>
+
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>AddUserDetails</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!--<link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
+
+</head>
+
+<body>
+	<section id="mailing-list" style="margin-top: 10px">
+		<div class="container">
+			<!--<ul class="pager">
+		<li class="previous"><a href="#">Previous</a></li>
+		<li class="next"><a href="#">Next</a></li>
+	</ul>-->
+	<form [formGroup]="userForm" novalidate (ngSubmit)="onSubmit(userForm.value, userForm.valid)">
+			<div class=" form-group row" [hidden]="!successFlag">
+				<div class="col-lg-12 text-center">
+					<!--<h2 style="color: #333" class="section-heading">Thanks to join with Pezitr </h2>-->
+					<!--<h2 style="color: #333" class="section-heading" [hidden] = "!hideme">Technical</h2>-->
+				</div>
+			</div>
+			<div class="row" [hidden]="successFlag">
+				<div class="col-lg-12 text-center">
+					<h2 style="color: #333" class="section-heading">Little about me</h2>
+					<!--<h2 style="color: #333" class="section-heading" [hidden] = "!hideme">Technical</h2>-->
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12 col-md-offset-1" [hidden]="successFlag">
+
+					<div id="#mc_embed_signup">
+						<form [formGroup]="userForm" novalidate (ngSubmit)="onSubmit(userForm.value, userForm.valid)">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-2">
+									<div style="text-align: right;font-size: 11px; margin-right: 4%">
+										<span style="color: #e85c41; font-size: 150%; font-weight: normal; position: relative; top: 5px">*</span> indicates
+										required
+									</div>
+									<div style=" padding-top: 30px"></div>
+									<div class="form-group row">
+										<label for="email" class="col-sm-3 col-form-label" style="text-align: right"><span class="asterisk">*</span>Email:</label>
+										<div class="col-sm-8">
+											<input [(ngModel)]="emailId" style="text-indent: 4%" required class="form-control"  formControlName="email" id="email" placeholder="Enter Email">
+											<!--<input [(ngModel)]="emailId" style="text-indent: 4%" required class="form-control"  formControlName="email" placeholder="Enter Email" id="email" type="email">-->
+											<!--<small [hidden]="userForm.controls.email.valid || (userForm.controls.email.pristine && !submitted)" class="text-danger">Email required</small>-->
+											<control-messages [control]="userForm.controls.email" style="color: #E82C0C;"></control-messages>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="fname" class="col-sm-3 col-form-label" style="text-align: right"><span class="asterisk">*</span>Name:</label>
+										<div class="col-sm-8">
+											<input  [(ngModel)]="user_displayName" style="text-indent: 4%"  required class="form-control" formControlName="fname" id="fname" placeholder="First Name">
+											<!--<input type="text" [(ngModel)]="userName" style="text-indent: 4%"  required class="form-control" formControlName="fname" id="fname" placeholder="First Name">-->
+											<!--<small [hidden]="userForm.controls.fname.valid || (userForm.controls.fname.pristine && !submitted)" class="text-danger">First Name required</small>-->
+											<control-messages [control]="userForm.controls.fname" style="color: #E82C0C;"></control-messages>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="mobileno" class="col-sm-3 col-form-label" style="text-align: right"><span class="asterisk">*</span>Mobile:</label>
+										<div class="col-sm-8">
+											<input style="text-indent: 4%"  required class="form-control" formControlName="mobileno" id="mobileno" placeholder="9800000000 (10 digit mobile number.)">
+											<!--<input type="text" [(ngModel)]="userName" style="text-indent: 4%"  required class="form-control" formControlName="fname" id="fname" placeholder="First Name">-->
+											<!--<small [hidden]="userForm.controls.fname.valid || (userForm.controls.fname.pristine && !submitted)" class="text-danger">First Name required</small>-->
+											<control-messages [control]="userForm.controls.mobileno" style="color: #E82C0C;"></control-messages>
+										</div>
+									</div>
+									
+									<div class="form-group row">
+										<label for="cname" class="col-sm-3 col-form-label" style="text-align: right">Company Name:</label>
+										<div class="col-sm-8">
+											<input type="text" style="text-indent: 4%"  class="form-control" formControlName="cname" id="cname" placeholder="Company Name">
+											<!--<small [hidden]="userForm.controls.cname.valid || (userForm.controls.cname.pristine && !submitted)" class="text-danger">Last Name required</small>-->
+											<control-messages [control]="userForm.controls.cname" style="color: #E82C0C;"></control-messages>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="experience" class="col-sm-3 col-form-label" style="text-align: right"><span class="asterisk">*</span>Experience:</label>
+										<div class="col-sm-8">
+											<select style="text-indent: 2%" formControlName="experience" #refName class="form-control" style="height: 3.4rem">
+										<option *ngFor="let experience of expobj" value="{{ experience.id }}"> {{ experience.name }}</option>
+									</select>
+											<!--<small [hidden]="userForm.controls.experience.valid || (userForm.controls.experience.untouched && !submitted)" class="text-danger">Experience required</small>-->
+											<control-messages [control]="userForm.controls.experience" style="color: #E82C0C;"></control-messages>
+
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label for="city1" class="col-sm-3 col-form-label" style="text-align: right"><span class="asterisk">*</span>City Name:</label>
+										<div class="col-sm-8">
+											<select formControlName="city1" #refName (change)="onSelect($event.target.value)" class="form-control" style="height: 3.4rem">
+										<option *ngFor="let city of cityobj" value="{{ city.id }}"> {{ city.name }}</option>
+									</select>
+											<!--<small [hidden]="userForm.controls.city1.valid || (userForm.controls.city1.untouched && !submitted)" class="text-danger">City Name required</small>-->
+											<control-messages [control]="userForm.controls.city1" style="color: #E82C0C;"></control-messages>
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label for="area1" class="col-sm-3 col-form-label" style="text-align: right"><span class="asterisk">*</span>Area Name:</label>
+										<div class="col-sm-8">
+											<select formControlName="area1" #refName class="form-control" style="height: 3.4rem">
+										<option *ngFor="let area of areaobj" value="{{ area.id }}"> {{ area.name }}</option>
+									</select>
+											<!--<small [hidden]="userForm.controls.area1.valid || (userForm.controls.area1.untouched && !submitted)" class="text-danger">Area Name required</small>-->
+											<control-messages [control]="userForm.controls.area1" style="color: #E82C0C;"></control-messages>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row" style="text-align: left">
+								<div class="col-md-offset-1 col-md-12">
+									<h1 style="font-size:20px">Experience</h1>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-offset-1 col-md-10">
+									<div formGroupName="ques1">
+									<div class="form-group" style="text-align: left">
+										<ul class="errors"></ul>
+										<label for="ques1label"><span class="required">*</span>
+										What is your most frequently used programming language?
+									</label>
+										<div class="row">
+											<div class="col-md-12 col-md-offset-1">
+												<div class="row">
+													<div class="col-md-4" style="text-align: left">
+														<ul id="ques1ui1">
+															<li>
+																<label for="chckbox_perl">
+																	<input formControlName="chckbox_perl" name="chckbox_perl" type="checkbox" value="perl" /> Perl
+																</label>
+															</li>
+															<li>
+																<label for="chckbox_javascript">
+																	<input formControlName="chckbox_javascript" name="chckbox_javascript" type="checkbox" value="javascript" /> JavaScript
+																</label>
+															</li>
+															<li>
+																<label for="chckbox_php">
+																	<input formControlName="chckbox_php" name="chckbox_php" type="checkbox" value="php" /> PHP
+																</label>
+															</li>
+															<li>
+																<label for="chckbox_go">
+																	<input formControlName="chckbox_go" name="chckbox_go" type="checkbox" value="go" /> Go
+																</label>
+															</li>
+														</ul>
+													</div>
+													<div class="col-md-4" style="text-align: left">
+														<ul id="ques1ui2">
+															<li>
+																<label for="chckbox_c">
+																	<input formControlName="chckbox_c" name="chckbox_c" type="checkbox" value="c++" /> C/C++
+																</label>
+															</li>
+															<li>
+																<label for="chckbox_unix">
+																	<input formControlName="chckbox_unix" name="chckbox_unix" type="checkbox" value="unix" /> UNIX scripting
+																</label>
+															</li>
+															<li>
+																<label for="chckbox_scala">
+																	<input formControlName="chckbox_scala" name="chckbox_scala" type="checkbox" value="scala" /> Scala
+																</label>
+															</li>
+															<li>
+																<label for="chckbox_python">
+																	<input formControlName="chckbox_python" name="chckbox_python" type="checkbox" value="python" /> Python
+																</label>
+															</li>
+														</ul>
+													</div>
+													<div class="col-md-4" style="text-align: left">
+														<ul id="ques1ui2">
+															<li>
+																<label for="chckbox_objectC">
+																	<input formControlName="chckbox_objectC" name="chckbox_objectC" type="checkbox" value="objectC" /> Objective-C
+																</label>
+															</li>
+															<li>
+																<label for="chckbox_ruby">
+																	<input formControlName="chckbox_ruby" name="chckbox_ruby" type="checkbox" value="ruby" /> Ruby
+																</label>
+															</li>
+															<li>
+																<label for="chckbox_java">
+																	<input formControlName="chckbox_java" name="chckbox_java" type="checkbox" value="java" /> Java
+																</label>
+															</li>
+															<li>
+																<label for="chckbox_chash">
+																	<input formControlName="chckbox_chash" name="chckbox_chash" type="checkbox" value="chash" /> C#
+																</label>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+										<br>
+										<ul class="errors"></ul>
+										<label for="otherText">
+											Other (please specify)
+                        				</label>
+										<div class="row">
+											<div class="col-md-4">
+												<input class="form-control" style="height: 50px" formControlName="otherText" maxlength="255" name="otherText" type="text" />
+											</div>
+										</div>
+									</div>
+								</div>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-md-offset-1 col-md-10">
+									<div class="form-group" style="text-align: left">
+										<div formGroupName="ques2">
+										<ul class="errors"></ul>
+										<label for="ques2label"><span class="required">*</span>How would you evaluate your self with the following technology?
+                        				</label>
+										<table class="table">
+											<tr>
+												<th></th>
+												<th>No Experience</th>	
+                                        		<th>Beginner</th>
+                                           		<th>Intermediate</th>
+                                    			<th>Expert</th>
+											</tr>
+											<tr>
+												<td>Object-Oriented Programming</td>
+												<td>
+													<input type="radio" id="oop_redio1" formControlName="oop_redio1"  value="oop_noexp">
+												</td>
+												<td>
+													<input id="oop_redio2" formControlName="oop_redio1" type="radio" value="java_begin">
+												</td>
+												<td>
+													<input id="oop_redio3" formControlName="oop_redio1" type="radio" value="oop_inter">
+												</td>
+												<td>
+													<input id="oop_redio4" formControlName="oop_redio1" type="radio" value="oop_expert">
+												</td>
+											</tr>
+											<tr>
+												<td>Java Development</td>
+												<td>
+													<input type="radio" id="java_redio1" formControlName="java_redio1"  value="java_noexp">
+												</td>
+												<td>
+													<input id="java_redio2" formControlName="java_redio1" type="radio" value="java_begin">
+												</td>
+												<td>
+													<input id="java_redio3" formControlName="java_redio1" type="radio" value="java_inter">
+												</td>
+												<td>
+													<input id="java_redio4" formControlName="java_redio1" type="radio" value="java_expert">
+												</td>
+											</tr>
+											<tr>
+												<td>C++ Development</td>
+												<td>
+													<input type="radio" id="cdevel_redio1" formControlName="cdevel_redio1"  value="cdevel_noexp">
+												</td>
+												<td>
+													<input id="cdevel_redio2" formControlName="cdevel_redio1" type="radio" value="cdevel_begin">
+												</td>
+												<td>
+													<input id="cdevel_redio3" formControlName="cdevel_redio1" type="radio" value="cdevel_inter">
+												</td>
+												<td>
+													<input id="cdevel_redio4" formControlName="cdevel_redio1" type="radio" value="cdevel_expert">
+												</td>
+											</tr>
+											<tr>
+												<td>JavaScript</td>
+												<td>
+													<input type="radio" id="javaSc_redio1" formControlName="javaSc_redio1"  value="javaSc_noexp">
+												</td>
+												<td>
+													<input id="javaSc_redio2" formControlName="javaSc_redio1" type="radio" value="javaSc_begin">
+												</td>
+												<td>
+													<input id="javaSc_redio3" formControlName="javaSc_redio1" type="radio" value="javaSc_inter">
+												</td>
+												<td>
+													<input id="javaSc_redio4" formControlName="javaSc_redio1" type="radio" value="javaSc_expert">
+												</td>
+											</tr>
+											<tr>
+												<td>HTML5/CSS</td>
+												<td>
+													<input type="radio" id="htmlcss_redio1" formControlName="htmlcss_redio1"  value="htmlcss_noexp">
+												</td>
+												<td>
+													<input id="htmlcss_redio2" formControlName="htmlcss_redio1" type="radio" value="htmlcss_begin">
+												</td>
+												<td>
+													<input id="htmlcss_redio3" formControlName="htmlcss_redio1" type="radio" value="htmlcss_inter">
+												</td>
+												<td>
+													<input id="htmlcss_redio4" formControlName="htmlcss_redio1" type="radio" value="htmlcss_expert">
+												</td>
+											</tr>
+										</table>
+									</div>
+									</div>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-md-offset-1 col-md-10">
+									<div class="form-group" style="text-align: left">
+										<div formGroupName="ques3">
+										<ul class="errors"></ul>
+										<label for="ques3lebel">Please specify any notable achievements or projects.
+                        				</label>
+										<div class="row">
+											<div class="col-md-6">
+												<textarea class="form-control" cols="40" id="ques3TextArea" maxlength="1000" formControlName="ques3TextArea" rows="4">
+												</textarea>
+											</div>
+										</div>
+									<br>
+									</div>
+									</div>
+								</div>
+							</div>	
+
+							<div class="clear">
+								<!--<button type="button" (click)="previous()" class="btn btn-primary" name="previous" style="background-color: #333">previous</button>-->
+								<button type="submit"  [disabled]="!userForm.valid" class="btn btn-primary confirmbutton" name="confirm" style="background-color: #a94442; width: 970px; align-content: center; ">Confirm</button>
+							</div>
+						</form>
+					</div>
+
+				</div>
+			</div>
+	</form>
+
+
+		</div>
+	</section>
+
+</body>
+
+</html>

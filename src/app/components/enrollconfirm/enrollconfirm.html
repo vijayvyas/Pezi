@@ -1,0 +1,43 @@
+<section id="about" class="bg-light-gray">
+  <div class="container" style="max-width:800px">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading" style="font-weight: 800;">Thanks to Enroll</h2>
+        <h3 class="section-subheading text-muted">Co-Learning in an Innovative Environment</h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12 text-left section-content">
+        <br>
+        <h4>Please Read below point</h4><br>
+        <ol>
+          <li>Ready to travel specified class location.</li>
+          <li>Ready to attent 8 week course.</li>
+          <li>Shoule have own laptop.</li>
+          <li>Can contribute 10 to 15 hours per week .</li>
+          <li>Assignment should be complete on time.</li>
+        </ol>        
+      </div>
+    </div>
+    <form [formGroup]="enrollconfirmform" novalidate (ngSubmit)="onSubmit($event)">
+      <div>
+        <div class="col-md-4" style="text-align: left">
+     
+            <label for="chckbox_go">
+                <input formControlName="agreed" name="agreed" required type="checkbox" value="agreed" /> I Agree.
+            </label>
+           
+        </div>
+      </div>
+       <br>
+        <div class="clear">
+            <!--<button type="button" (click)="previous()" class="btn btn-primary" name="previous" style="background-color: #333">previous</button>-->
+            <button type="submit" [disabled]="enrollconfirmform.valid"  class="btn btn-primary" style="background-color: #a94442;" name="confirm">Home</button>
+            <button type="submit" [disabled]="!enrollconfirmform.valid" class="btn btn-primary" style="background-color: #a94442;" name="confirm">Confirm</button>
+            
+        </div>
+    </form>
+  </div>
+</section>
+<!--<contact-us></contact-us>-->

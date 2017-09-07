@@ -1,0 +1,196 @@
+<section id="assignment" class="bg-light-gray left-move">
+  <!--<div class="container" style="max-width:800px">-->
+    <div class="row" style="padding-left: 15px;">
+      <div class="col-sm-9">
+        <div class="section-content">
+          <div class="panel panel-default">
+            <div class="panel-heading" id="timeline">
+              <h1>Timeline &amp; Requirements</h1>
+            </div>
+            <div class="panel-body">
+              <p><strong><h4>Thank you for applying to Pezitr’s Angular Programming course.</h4></strong></p>
+
+              <p>We had many people apply for the class, so to be accepted you must finish a short assignment. The best submissions will be accepted into the course.
+                Engineers that submit apps with extended functionality and improved UI are
+                <strong>significantly more likely to be accepted</strong> into the class.</p>
+
+              <h2 id="application-timeline">Application Timeline</h2>
+
+              <ul>
+                <li><strong>Submit the assignment by 23:59, May 27, 2017</strong>. The assignment takes hours, and you will 
+                learn a lot, so please start early and submit as soon as you can.</li>
+                <li>We will admit up to 30 students into our class. We will notify you of the results between 1 and 2 weeks after
+                  your submissions.</li>
+                <li>The first class will take place on <strong>June 6</strong>. Classes will be on Mondays and Wednesday, 19:00-21:00.</li>
+              </ul>
+
+              <h2 id="requirements">Requirements</h2>
+
+              <ul>
+                <li>Be able to attend classes in Pune. Venue of the Classes will be shared soon.</li>
+                <li>Have some Object Oriented Programming experience.</li>
+                <li>Can dedicate 10-15+ hours per week on this 8-week course.</li>
+                <li>Experience in design can help you learn more quickly.</li>
+                <li>Be able to and be willing to learn a programming language quickly.</li>
+                <li>Interested in working on a final group project with a team during the course.</li>
+                <li>Be able to submit weekly homework assignments or project updates on time. If you fail to do that, 
+                  you will not be eligible to continue hence you have to withdraw from the program.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="panel panel-primary" *ngIf="!isLoggedIn" [style.display]="displaylogin">
+            <div class="panel-heading" id="prework">
+              <h1>Prework</h1>
+            </div>
+            <div class="panel-body">
+              <p style="text-align:center">
+                <a class="btn btn-lg btn-primary" (click)="displayLogin()">Login Here</a></p>
+              <div class="row">
+                <div class="col-xs-12"><br>
+                    <p>If you face any trouble while login, Please contact to Pezitr Team or write at <a href="mailto:admin@pezitr.com">admin@pezitr.com</a> to connect with us.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-primary" *ngIf="isLoggedIn" [style.display]="displaysteps">
+            <div class="panel-heading" id="prework">
+              <h1>Prework</h1>
+            </div>
+            <div class="panel-body">
+              <h2>Hello {{user_displayName}}</h2>
+              <p>We’re going to build a very simple Angular2 application that’s a modified version of the official 
+                Angular guide <a href="http://angular.com">Angular</a>.
+                </p>
+
+              <h3 id="step-1-install-node">Step 1: Install below software</h3>
+
+              <ol>
+                <li>Install Node from <a href="https://nodejs.org/en/" target="_blank">Node</a></li>
+                <li>Follow the instructions at <a href="https://cli.angular.io/" target="_blank">Angular CLI</a>.  or follow following statements.
+                <table class="CodeRay">
+                      <tbody>
+                        <tr>
+                          <td class="line-numbers">
+                        <pre><a>1</a>
+<a>2</a>
+<a>3</a>
+<a>4</a></pre>
+                          </td>
+                          <td class="code">
+                            <pre>npm install -g @angular/cli
+ng new myFirstApp
+cd myFirstApp
+ng serve</pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    Follow the <a href="assets/img/AssignmentDemo.gif" target="_blank">Demo</a>.</li>
+                <li>Install Visual Studio Code for app editing from <a href="https://code.visualstudio.com/">code.visualstudio.com</a></li>
+                <li>Move the <code>angular-cli</code> dependency from <code>devDependencies</code> to <code>dependencies</code> in your <code>package.json</code></li>
+                <li>Add <code>postinstall</code> <code>script</code> in your <code>package.json</code>. which builds project to <code>dist</code> directory at server: <code>ng build --aot -prod</code></li>
+                <li>Create a <code>server.js</code> file in the root of your project and add code to serve the static files in your <code>dist</code> directory.</li>
+                <li>Install Mongo database on your computer from <a href="https://www.mongodb.com/">Mongodb</a>, this will be used during our sessions.</li>
+                <li>Refer the sample application at <a href="https://github.com/PeziTr/sampleApp">Git sample App</a>,
+                    If you’re still having trouble, please email assignment@pezitr.com and we are happy to assist you. Don’t feel bad - this can be surprisingly tricky and frustrating sometime.</li>
+              </ol>
+
+              <h3 id="step-2-familiarize-yourself-with-html--css">Step 2: Familiarize yourself with HTML & CSS and Rest.</h3>
+
+              <p>Some of the links below may be interesting to you. Read what you find interesting; 
+                it will help you move more quickly.</p>
+
+              <ul>
+              <li><a href="https://www.tutorialspoint.com/html5/" target="_blank">HTML</a></li>
+              <li><a href="https://www.tutorialspoint.com/css/" target="_blank">CSS</a></li>
+              <li><a href="https://www.tutorialspoint.com/restful/" target="_blank">Rest</a></li>
+              </ul>
+
+              <h3 id="step-3-build-the-initial-app">Step 3: Build the Initial App</h3>
+
+              <p>Follow the <a href="assets/img/assignment.png" target="_blank">download</a> and try to compete the app with your understanding of web development.</p>
+
+              <h3 id="step-4-deploy-your-application-to-heroku">Step 4: Deploy your application to Heroku</h3>
+
+              <p>Throughout the course, we’ll be using <a href="http://www.heroku.com">Heroku</a> to deploy our Rails applications.
+                After you deploy to Heroku, you’ll be able to view your app at http://app-name.herokuapp.com.</p>
+
+              <ol>
+                <li>Go to <a href="http://www.heroku.com">www.heroku.com</a> and create an account.</li>
+                <li>Install the <a href="https://toolbelt.heroku.com/">Heroku Toolbelt</a> locally on your system.</li>
+                <li>Add <code>git add . all</code> to your <code>push</code>.</li>
+                <li>
+                  <p>If you haven’t already initialized a git repository:</p>
+
+                  <div class="highlighter-coderay">
+                    <table class="CodeRay">
+                      <tbody>
+                        <tr>
+                          <td class="line-numbers">
+                        <pre><a>1</a>
+<a>2</a></pre>
+                          </td>
+                          <td class="code">
+                            <pre>git init .
+git commit -a -m "First commit of my super awesome app."</pre>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </li>
+                <li>Create a new app on Heroku with the command <code>heroku create</code>. It will give you a random name; you
+                  can change it later if desired.</li>
+                <li>Push your code to Heroku and it will automatically restart the app for you: <code>git push heroku master</code></li>
+              </ol>
+
+              <h3 id="step-5-submit-the-assignment">Step 5: Submit the assignment</h3>
+
+              <p>Once you’ve completed the application (<strong>including pushing to Heroku</strong>), please <a href="https://help.github.com/articles/create-a-repo">push your app via Github</a>.
+                All submissions occur via Github and we require each submission to follow a particular format which includes
+                a <strong>clearly documented README</strong> with a GIF walkthrough and <strong>an issue raised</strong>                as detailed below.</p>
+
+              <p style="padding-left: 100px;"><img src="/assets/img/git-submit.png" alt="submission"></p>
+
+              <p>Submit your project by <strong>creating an issue on your repository</strong> and adding the Github handle (<strong>@pezitr</strong>)
+                to the issue body so we can review the submission.</p>
+
+              <p>Also be sure to <strong>include a README.md</strong> containing a GIF walkthrough using <a href="http://www.cockos.com/licecap/">LiceCap</a>
+                   of the app demonstrating how it works with required user stories completed. Use <a href="https://gist.github.com/PeziTr/d3cd6d69d09e74a534340ccf2658e9a7" target="_blank">this README template</a>.</p>
+
+              <p><strong>Note:</strong> All project submissions happen via Github. If needed, review how to push your apps to
+                Github with <a href="https://help.github.com/articles/create-a-repo">this handy tutorial</a>. Note that Cli
+                automatically adds a <a href="https://raw.githubusercontent.com/">.gitignore</a>
+                to your project as well to <strong>avoid commiting log files, temp files and other unnecessary files to git</strong>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!--</div>-->
+</section>
+<div id="id01" class="loginModel modal">
+
+  <div class="imgcontainer">
+    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+    <img src="assets/img/img_avatar2.png" alt="Avatar" class="avatar">
+  </div>
+  <div style="margin: 0 auto; display: inline-block">
+    <br>
+    <a style="width: 230px; height: 40px; background-color: #DD4B39; color: white" class="btn btn-block btn-social btn-google"
+      (click)="login('google')">
+      <span class="fa fa-google"></span>  Sign in with google</a>
+    <br>
+    <a style="width: 230px; height: 40px; background-color: #444444; color: white " class="btn btn-block btn-social btn-github"
+      (click)="login('github')">
+      <span class="fa fa-github"></span>  Sign in with GitHub</a>
+    <br>
+    <a style="width: 230px; height: 40px; background-color: #3B5998; color: white" class="btn btn-block btn-social btn-facebook"
+      (click)="login('fb')">
+      <span class="fa fa-facebook"></span>  Sign in with Facebook</a>
+      
+    <!--<a href="http://www.facebook.com/dialog/oauth?client_id=1273622235983404&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Flogin"> <img
+			style="margin-top: 10px;width: 225px;" src="src/app/images/googleplus_button.png" />
+		</a>-->
+  </div>
+</div>

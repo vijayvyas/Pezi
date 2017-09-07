@@ -1,0 +1,167 @@
+/* You can add global styles to this file, and also import other style files */
+/* Retina display */
+@media screen and (min-width: 1980px){
+    .find-right-mentor{
+		background-image:url('../img/1024/class2.png');
+    }
+	.pullme{
+		background-image:url('../img/1024/Angularjs-training-course.jpg');
+	}
+	.android-coming{
+		background-image:url('../img/1024/android_coming.jpg');
+	}
+}
+@media screen and (max-width: 1980px){
+    .find-right-mentor{
+		background-image:url('../img/1024/class2.png');
+    }
+	.pullme{
+		background-image:url('../img/1024/Angularjs-training-course.jpg');
+	}
+	.android-coming{
+		background-image:url('../img/1024/android_coming.jpg');
+	}
+}
+
+@media screen and (max-width: 1600px){
+    .find-right-mentor{
+		background-image:url('../img/1024/class2.png');
+    }
+	.pullme{
+		background-image:url('../img/1024/Angularjs-training-course.jpg');
+	}
+	.android-coming{
+		background-image:url('../img/1024/android_coming.jpg');
+	}
+}
+
+
+@media screen and (max-width: 1360px){
+    .find-right-mentor{
+		background-image:url('../img/1024/class2.png');
+    }
+	.pullme{
+		background-image:url('../img/1024/Angularjs-training-course.jpg');
+	}
+	.android-coming{
+		background-image:url('../img/1024/android_coming.jpg');
+	}
+}
+
+/* Desktop */
+@media screen and (max-width: 1024px){
+    .find-right-mentor{
+		background-image:url('../img/1024/class2.png');
+    }
+	.pullme{
+		background-image:url('../img/1024/Angularjs-training-course.jpg');
+	}
+	.android-coming{
+		background-image:url('../img/1024/android_coming.jpg');
+	}
+}
+
+/* Tablet */
+@media screen and (max-width: 980px){
+    .find-right-mentor{
+		background-image:url('../img/1024/class2.png');
+    }
+	.pullme{
+		background-image:url('../img/1024/Angularjs-training-course.jpg');
+	}
+	.android-coming{
+		background-image:url('../img/1024/android_coming.jpg');
+	}
+}
+
+/* Mobile HD */
+@media screen and (max-width: 760px){
+     .find-right-mentor{
+		background-image:url('../img/1024/class2.png');
+    }
+	.pullme{
+		background-image:url('../img/1024/Angularjs-training-course.jpg');
+	}
+	.android-coming{
+		background-image:url('../img/1024/android_coming.jpg');
+	}
+   
+}
+
+/* Mobile LD */
+@media screen and (max-width: 380px){
+    .find-right-mentor{
+		background-image:url('../img/360/class2.png');
+    }
+	.pullme{
+		background-image:url('../img/360/Angularjs-training-course.jpg');
+	}
+	.android-coming{
+		background-image:url('../img/360/android_coming.jpg');
+	}
+}
+
+
+@media screen and (min-height: 3000px){
+    .carousel{
+        height: 2800px;
+    }
+}
+@media screen and (max-height: 3000px){
+    .carousel{
+        height: 2800px;
+    }
+}
+
+@media screen and (max-height: 1980px){
+    .carousel{
+        height: 1800px;
+    }
+}
+
+@media screen and (max-height: 1600px){
+    .carousel{
+        height: 1450px;
+    }
+}
+
+
+@media screen and (max-height: 1360px){
+    .carousel{
+        height: 1200px;
+    }
+}
+
+/* Desktop */
+@media screen and (max-height: 1024px){
+    .carousel{
+        height: 900px;
+    }
+}
+
+/* Tablet */
+@media screen and (max-height: 980px){
+    .carousel{
+        height: 850px;
+    }
+}
+
+/* Mobile HD */
+@media screen and (max-height: 760px){
+    .carousel{
+        height: 650px;
+    }
+}
+
+@media screen and (max-height: 650px){
+    .carousel{
+        height: 500px;
+    }
+}
+
+/* Mobile LD */
+@media screen and (max-height: 380px){
+    .carousel{
+        height: 290px;
+    }
+}
